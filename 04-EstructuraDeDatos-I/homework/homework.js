@@ -13,15 +13,15 @@ Secuencia:  0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
 
 Como ejercicio adicional y completamente opcional, al terminar de resolver este problema pueden intentar definir funciones que logren los mismos resultados pero de manera iterativa.
 */
-
-function nFactorial(n) {
-  if (n === 1 || n === 0) {
-    return 1;
-  } return n * nFactorial(n - 1);
-}
+                                       // if (n < 2 && n > -1){
+function nFactorial(n) {               //   return 1;
+  if (n === 1 || n === 0) {            // } if (n < 0){
+    return 1;                          //   return 0;
+  } return n * nFactorial(n - 1);      // } return n * nFactorial(n - 1);
+}                                      
 
 function nFibonacci(n) {
-  if (n <= 1) return n;
+  if (n <= 1) return n;                              // if (n < 0) return false;
   return nFibonacci(n - 2) + nFibonacci(n - 1);
 }
 
