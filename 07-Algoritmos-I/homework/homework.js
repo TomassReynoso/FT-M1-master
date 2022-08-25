@@ -7,6 +7,19 @@ function factorear(num) {
   // Ej: factorear(180) --> [1, 2, 2, 3, 3, 5] Ya que 1x2x2x3x3x5 = 180 y son todos números primos
   // Tu código:
 
+  let array = [1];
+  let i = 2;
+  while (num !== 1) {
+    if (num % i === 0) {
+      array.push(i);
+      num = num / i;
+      //ALTERNATIVA
+      //num = /i;
+    } else {
+      i++;
+    }
+  }
+  return array;
 }
 
 function bubbleSort(array) {
@@ -15,8 +28,49 @@ function bubbleSort(array) {
   // Devolver el array ordenado resultante
   // Tu código:
 
-}
+  // for (let i = 0; i < array.length; i++) {
+  //   for (let x = 0; x < array.length; x++) {
+  //     if (array[x] > array[x + 1]) {
+  //       let burbuja = array[x];
+  //       array[x] = array[x + 1]
+  //       array[x + 1] = burbuja;
+  //     }
+  //   }
+  // }
+  // return array;
 
+  // SIMILAR QUE HIZO UN COMPAÑERO
+  //
+  //   let burbuja = 0;
+  //   for (let i = 0; i < array.length; i++) {
+  //     for (let x = i + 1; x < array.length; x++) {
+  //       if (array[i] > array[x]) {
+  //         burbuja = array[x];
+  //         array[x] = array[i]
+  //         array[i] = burbuja;
+  //       }
+  //     }
+  //   }
+  //   return array;
+
+  // EL DEL CODE REVIEW
+  //
+  let swap = true;
+
+  while (swap) {
+    swap = false;
+    for (let i = 0; i < array.length - 1; i++) {
+      if (array[i] > array[i + 1]) {
+        let aux = array[i];
+        array[i] = array[i + 1];
+        array[i + 1] = aux;
+        swap = true;
+      }
+    }
+  }
+  return array;
+
+}
 
 function insertionSort(array) {
   // Implementar el método conocido como insertionSort para ordenar de menor a mayor
@@ -24,7 +78,23 @@ function insertionSort(array) {
   // Devolver el array ordenado resultante
   // Tu código:
 
+  for (let i = 0; i < array.length; i++) {
+    let j = i - 1;
+    let aux = array[i];
+    while (j >= 0 && array[j] > aux) {
+      array[j + 1] = array[j];
+      j--;
+    }
+    array[j + 1] = aux;
+  }
+  return array;
+
 }
+
+let miArray = [5, 1, 4, 2, 8];
+console.log(miArray);
+let funcion = insertionSort(miArray);
+console.log(miArray);
 
 
 function selectionSort(array) {
@@ -33,7 +103,22 @@ function selectionSort(array) {
   // Devolver el array ordenado resultante
   // Tu código:
 
+  for (let j = 0; j < array.length - 1; j++) {
+    let min = j;
+    for (let i = j + 1; i < array.length; i++) {
+      if (array[i] < array[min]) {
+        min = i;
+      }
+    }
+    if (j !== min) {
+      let aux = array[j];
+      array[j] = array[min];
+      array[min] = aux;
+    }
+  }
+  return array;
 }
+
 
 
 // No modificar nada debajo de esta línea
